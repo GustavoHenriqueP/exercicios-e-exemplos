@@ -1,0 +1,97 @@
+body {
+  margin: 0px;
+  min-block-size: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 40px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  max-width: 200px;
+}
+
+.title-small {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.loader {
+  width: 150%;
+  height: 8px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  position: relative;
+}
+
+.loader::after {
+  content: "";
+  width: 0px;
+  height: 8px;
+  background-color: limegreen;
+  border-radius: 8px;
+  position: absolute;
+  animation: load-different 2s ease-in-out infinite;
+}
+
+@keyframes load {
+  to {
+    width: 80%;
+  }
+}
+
+@keyframes load-different {
+  50% {
+    left: 0%;
+    width: 100%;
+  }
+  100% {
+    left: 50%;
+    width: 50%;
+  }
+}
+
+.box-test {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-content: center;
+  border: 2px solid #e7e7e7;
+  border-radius: 8px;
+  position: relative;
+}
+
+.box-test::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgb(56 189 248);
+  top: -4px;
+  right: -4px;
+  position: absolute;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.box-test::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgb(14 165 233);
+  top: -4px;
+  right: -4px;
+  position: absolute;
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
